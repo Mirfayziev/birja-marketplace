@@ -108,6 +108,8 @@
     "failed_rows": "Строки с ошибками",
     "edit_product": "Редактировать товар",
     "stock_quantity": "Остаток на складе",
+    "product_image": "Фото",
+    "product_images": "Фотографии товара",
     "select_all": "Выбрать все",
     "delete_selected": "Удалить выбранные ({{count}})",
     "delete_selected_confirm": "Удалить {{count}} категорий?",

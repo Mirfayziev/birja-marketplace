@@ -1,7 +1,8 @@
 """Flask ilova factory."""
 import os
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from app.config import config_by_name
 from app.extensions import db, migrate, jwt, cors
@@ -12,6 +13,12 @@ def create_app(config_name=None):
 
     app = Flask(__name__)
     app.config.from_object(config_by_name[config_name])
+
+    # Railway/Render kabi platformalarda TLS chekka proksida tugaydi va
+    # X-Forwarded-* headerlar orqali beriladi - shularsiz request.url_root
+    # doim "http://" deb hisoblab, rasm havolalarida aralash-kontent (mixed
+    # content) xatosiga olib keladi.
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
     db.init_app(app)
     migrate.init_app(app, db)
@@ -40,6 +47,16 @@ def create_app(config_name=None):
     app.register_blueprint(orders_bp)
     app.register_blueprint(admin_bp)
     app.register_blueprint(payments_bp)
+
+    # Nisbiy UPLOAD_FOLDER'ni absolyut yo'lga aylantiramiz - aks holda
+    # file.save() joriy ishchi katalogga, send_from_directory esa
+    # app.root_path'ga nisbatan hal qiladi va ular mos kelmay qoladi.
+    app.config["UPLOAD_FOLDER"] = os.path.abspath(app.config["UPLOAD_FOLDER"])
+    os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
+
+    @app.get("/uploads/<path:filename>")
+    def uploaded_file(filename):
+        return send_from_directory(app.config["UPLOAD_FOLDER"], filename)
 
     @app.get("/api/health")
     def health():

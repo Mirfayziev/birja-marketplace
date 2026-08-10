@@ -108,6 +108,8 @@
     "failed_rows": "Failed rows",
     "edit_product": "Edit product",
     "stock_quantity": "Stock quantity",
+    "product_image": "Photo",
+    "product_images": "Product photos",
     "select_all": "Select all",
     "delete_selected": "Delete selected ({{count}})",
     "delete_selected_confirm": "Delete {{count}} categories?",

@@ -167,6 +167,7 @@ class Product(db.Model, TimestampMixin):
             "stock_quantity": self.stock_quantity,
             "purchase_type": self.purchase_type.value,
             "images": [img.image_url for img in self.images],
+            "image_ids": [img.id for img in self.images],
         }
         if include_lots:
             data["exchange_lots"] = [lot.to_dict() for lot in self.exchange_lots]

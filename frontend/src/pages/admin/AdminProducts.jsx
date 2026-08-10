@@ -15,11 +15,18 @@ const emptyForm = {
   purchase_type: "naqd",
 };
 
+async function uploadProductImage(productId, file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  await apiClient.post(`/api/products/${productId}/images/upload`, formData);
+}
+
 export default function AdminProducts() {
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [form, setForm] = useState(emptyForm);
+  const [newImage, setNewImage] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [expandedId, setExpandedId] = useState(null);
@@ -43,8 +50,15 @@ export default function AdminProducts() {
     e.preventDefault();
     setError("");
     try {
-      await apiClient.post("/api/products", { ...form, price: Number(form.price) });
+      const { data: created } = await apiClient.post("/api/products", {
+        ...form,
+        price: Number(form.price),
+      });
+      if (newImage) {
+        await uploadProductImage(created.id, newImage);
+      }
       setForm(emptyForm);
+      setNewImage(null);
       loadData();
     } catch (err) {
       setError(err.response?.data?.error || "Xatolik");
@@ -105,6 +119,15 @@ export default function AdminProducts() {
             </option>
           ))}
         </select>
+        <label className="flex items-center gap-2 rounded-xl border border-dashed border-admin-border bg-white/5 px-3 py-2 text-xs text-admin-muted">
+          <span className="shrink-0">{t("admin.product_image")}</span>
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            onChange={(e) => setNewImage(e.target.files?.[0] || null)}
+            className="w-full min-w-0 text-white file:mr-2 file:rounded-lg file:border-0 file:bg-tile-blue file:px-2 file:py-1 file:text-white"
+          />
+        </label>
         <button className="rounded-xl bg-saffron px-4 py-2 text-sm font-medium text-white hover:bg-saffron-deep sm:col-span-full lg:col-span-1">
           + {t("common.save")}
         </button>
@@ -146,6 +169,7 @@ export default function AdminProducts() {
               {expandedId === p.id && (
                 <>
                   <EditProductForm product={p} onChange={loadData} t={t} />
+                  <ImageManager product={p} onChange={loadData} t={t} />
                   <ExchangeLotManager product={p} onChange={loadData} t={t} />
                 </>
               )}
@@ -229,6 +253,65 @@ function EditProductForm({ product, onChange, t }) {
         </button>
       </div>
     </form>
+  );
+}
+
+function ImageManager({ product, onChange, t }) {
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleUpload(e) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    setUploading(true);
+    setError("");
+    try {
+      await uploadProductImage(product.id, file);
+      onChange();
+    } catch (err) {
+      setError(err.response?.data?.error || "Xatolik");
+    } finally {
+      setUploading(false);
+    }
+  }
+
+  async function removeImage(imageId) {
+    await apiClient.delete(`/api/products/${product.id}/images/${imageId}`);
+    onChange();
+  }
+
+  return (
+    <div className="border-t border-admin-border p-4">
+      <p className="mb-3 text-xs font-medium text-admin-muted">{t("admin.product_images")}</p>
+
+      <div className="flex flex-wrap gap-3">
+        {product.images?.map((url, i) => (
+          <div key={url + i} className="group relative h-20 w-20 overflow-hidden rounded-lg border border-admin-border">
+            <img src={url} alt="" className="h-full w-full object-cover" />
+            <button
+              onClick={() => removeImage(product.image_ids?.[i] ?? "")}
+              className="absolute inset-0 hidden items-center justify-center bg-black/60 text-xs text-white group-hover:flex"
+            >
+              {t("common.delete")}
+            </button>
+          </div>
+        ))}
+
+        <label className="flex h-20 w-20 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-admin-border text-admin-muted hover:border-saffron hover:text-saffron">
+          <span className="text-xl leading-none">+</span>
+          <span className="text-[10px]">{uploading ? t("common.loading") : t("admin.product_image")}</span>
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            onChange={handleUpload}
+            disabled={uploading}
+            className="hidden"
+          />
+        </label>
+      </div>
+      {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
+    </div>
   );
 }
 

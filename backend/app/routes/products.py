@@ -1,5 +1,9 @@
 """Mahsulotlar: ochiq katalog (qidiruv/filtr) + admin CRUD + rasm va birja lot boshqaruvi."""
-from flask import Blueprint, request, jsonify
+import os
+import uuid
+
+from flask import Blueprint, current_app, request, jsonify
+from werkzeug.utils import secure_filename
 
 from app.extensions import db
 from app.models import (
@@ -171,6 +175,36 @@ def add_product_image(product_id):
         product_id=product.id,
         image_url=image_url,
         sort_order=data.get("sort_order", len(product.images)),
+    )
+    db.session.add(image)
+    db.session.commit()
+    return jsonify({"images": [img.image_url for img in product.images]}), 201
+
+
+@products_bp.post("/<product_id>/images/upload")
+@roles_required(UserRole.ADMIN, UserRole.SUPERADMIN)
+def upload_product_image(product_id):
+    product = Product.query.get_or_404(product_id)
+
+    if "file" not in request.files:
+        return jsonify({"error": "'file' maydonida rasm yuborilishi kerak"}), 400
+
+    file = request.files["file"]
+    ext = file.filename.rsplit(".", 1)[-1].lower() if "." in file.filename else ""
+    if ext not in current_app.config["ALLOWED_IMAGE_EXT"]:
+        allowed = ", ".join(sorted(current_app.config["ALLOWED_IMAGE_EXT"]))
+        return jsonify({"error": f"Faqat quyidagi formatlar qabul qilinadi: {allowed}"}), 400
+
+    filename = secure_filename(f"{uuid.uuid4().hex}.{ext}")
+    products_dir = os.path.join(current_app.config["UPLOAD_FOLDER"], "products")
+    os.makedirs(products_dir, exist_ok=True)
+    file.save(os.path.join(products_dir, filename))
+
+    image_url = f"{request.url_root.rstrip('/')}/uploads/products/{filename}"
+    image = ProductImage(
+        product_id=product.id,
+        image_url=image_url,
+        sort_order=len(product.images),
     )
     db.session.add(image)
     db.session.commit()

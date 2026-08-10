@@ -108,6 +108,8 @@
     "failed_rows": "Xatolik qatorlari",
     "edit_product": "Mahsulotni tahrirlash",
     "stock_quantity": "Ombordagi miqdor",
+    "product_image": "Rasm",
+    "product_images": "Mahsulot rasmlari",
     "select_all": "Barchasini tanlash",
     "delete_selected": "Tanlanganlarni o'chirish ({{count}})",
     "delete_selected_confirm": "{{count}} ta kategoriyani o'chirmoqchimisiz?",
