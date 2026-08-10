@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "categories": "Категории",
+    "catalog": "Каталог",
+    "search_placeholder": "Поиск товара...",
+    "cart": "Корзина",
+    "wishlist": "Избранное",
+    "profile": "Профиль",
+    "login": "Войти",
+    "register": "Регистрация",
+    "my_orders": "Заказы",
+    "admin_panel": "Админ-панель",
+    "logout": "Выйти",
+    "no_categories": "Категории пока не добавлены",
+    "no_subcategories": "В этой категории нет подразделов",
+    "view_all": "Смотреть все"
+  },
+  "hero": {
+    "eyebrow": "Одна платформа, два пути",
+    "title": "Покупайте за наличные. Или через биржу — официально и прозрачно.",
+    "subtitle": "На карточке каждого товара — два варианта: прямая покупка или переход к лоту на XT-Xarid, Uzex Xarid и Cooperation.uz.",
+    "cta_browse": "Смотреть категории",
+    "cta_how": "Как работает биржа?"
+  },
+  "purchase_type": {
+    "naqd": "Покупка за наличные",
+    "birja": "Через биржу",
+    "ikkalasi": "Наличные или биржа"
+  },
+  "product": {
+    "add_to_cart": "В корзину",
+    "buy_cash": "Купить за наличные",
+    "buy_exchange": "Купить через биржу",
+    "choose_exchange": "Выберите биржу",
+    "go_to_lot": "Перейти к лоту",
+    "in_stock": "На складе: {{count}} {{unit}}",
+    "out_of_stock": "Нет в наличии",
+    "manufacturer": "Производитель",
+    "description": "Описание",
+    "related_lots": "Связанные лоты биржи",
+    "exchange_note": "Эта покупка завершается на собственной платформе биржи."
+  },
+  "cart": {
+    "title": "Корзина",
+    "empty": "Ваша корзина пуста",
+    "empty_cta": "Начать покупки",
+    "quantity": "Количество",
+    "remove": "Удалить",
+    "total": "Итого",
+    "checkout": "Оформить заказ"
+  },
+  "wishlist": {
+    "title": "Избранное",
+    "empty": "Список избранного пуст",
+    "empty_cta": "Смотреть товары"
+  },
+  "checkout": {
+    "title": "Оформление заказа",
+    "contact_name": "Ф.И.О.",
+    "contact_phone": "Номер телефона",
+    "delivery_region": "Область/город",
+    "delivery_address": "Адрес доставки",
+    "comment": "Комментарий (необязательно)",
+    "payment_method": "Способ оплаты",
+    "pay_payme": "Payme",
+    "pay_click": "Click",
+    "pay_cash": "Наличными при доставке",
+    "submit": "Подтвердить заказ",
+    "success_title": "Заказ принят!",
+    "success_text": "Номер заказа: {{number}}. Наш оператор скоро свяжется с вами."
+  },
+  "auth": {
+    "login_title": "Вход в систему",
+    "register_title": "Регистрация",
+    "full_name": "Полное имя",
+    "phone": "Номер телефона",
+    "password": "Пароль",
+    "submit_login": "Войти",
+    "submit_register": "Зарегистрироваться",
+    "no_account": "Нет аккаунта?",
+    "have_account": "Уже есть аккаунт?",
+    "error_generic": "Произошла ошибка. Проверьте данные и попробуйте снова."
+  },
+  "orders": {
+    "title": "Мои заказы",
+    "empty": "Пока нет заказов",
+    "status": "Статус",
+    "order_number": "Номер заказа"
+  },
+  "footer": {
+    "tagline": "Надежная торговая платформа для рынка Узбекистана.",
+    "rights": "Все права защищены."
+  },
+  "admin": {
+    "dashboard": "Панель управления",
+    "products": "Товары",
+    "categories": "Категории",
+    "orders": "Заказы",
+    "excel_import": "Импорт Excel",
+    "exchange_lots": "Лоты биржи",
+    "total_products": "Активные товары",
+    "total_orders": "Всего заказов",
+    "new_orders": "Новые заказы",
+    "total_revenue": "Общая выручка",
+    "upload_excel": "Загрузить Excel файл",
+    "import_result": "Результат импорта",
+    "success_rows": "Успешные строки",
+    "failed_rows": "Строки с ошибками",
+    "edit_product": "Редактировать товар",
+    "stock_quantity": "Остаток на складе",
+    "select_all": "Выбрать все",
+    "delete_selected": "Удалить выбранные ({{count}})",
+    "delete_selected_confirm": "Удалить {{count}} категорий?",
+    "no_categories": "Категории пока не добавлены"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "back": "Назад",
+    "currency": "сум"
+  }
+}

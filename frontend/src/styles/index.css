@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+}
+
+::selection {
+  background-color: theme("colors.saffron.DEFAULT");
+  color: theme("colors.paper");
+}
+
+/* Klaviatura fokusi doim ko'rinadi */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid theme("colors.tile-blue.DEFAULT");
+  outline-offset: 2px;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Unbounded", sans-serif;
+  }
+
+  /* Registon kошинkori uslubidagi imzo naqsh - faqat hero va bo'lim chegaralarida, kam ishlatiladi */
+  .tile-border {
+    height: 10px;
+    background-image: repeating-linear-gradient(
+      135deg,
+      theme("colors.tile-blue.DEFAULT") 0 10px,
+      theme("colors.saffron.DEFAULT") 10px 20px
+    );
+    opacity: 0.85;
+  }
+
+  .glass-card {
+    background: theme("colors.admin.surface");
+    border: 1px solid theme("colors.admin.border");
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Klassik neon: header tugmalari va faol kategoriya holatlari uchun porlash */
+  .neon-glow-green {
+    text-shadow: 0 0 12px rgba(0, 230, 118, 0.65);
+  }
+  .neon-glow-blue {
+    text-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

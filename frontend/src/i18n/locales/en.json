@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "categories": "Categories",
+    "catalog": "Catalog",
+    "search_placeholder": "Search products...",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "profile": "Profile",
+    "login": "Log in",
+    "register": "Sign up",
+    "my_orders": "Orders",
+    "admin_panel": "Admin panel",
+    "logout": "Log out",
+    "no_categories": "No categories added yet",
+    "no_subcategories": "This category has no subsections",
+    "view_all": "View all"
+  },
+  "hero": {
+    "eyebrow": "One platform, two paths",
+    "title": "Buy with cash. Or through the exchange — official and transparent.",
+    "subtitle": "Every product card offers two options: buy directly, or go straight to the matching lot on XT-Xarid, Uzex Xarid, or Cooperation.uz.",
+    "cta_browse": "Browse categories",
+    "cta_how": "How does the exchange work?"
+  },
+  "purchase_type": {
+    "naqd": "Cash purchase",
+    "birja": "Via exchange",
+    "ikkalasi": "Cash or exchange"
+  },
+  "product": {
+    "add_to_cart": "Add to cart",
+    "buy_cash": "Buy with cash",
+    "buy_exchange": "Buy via exchange",
+    "choose_exchange": "Choose an exchange",
+    "go_to_lot": "Go to lot",
+    "in_stock": "In stock: {{count}} {{unit}}",
+    "out_of_stock": "Out of stock",
+    "manufacturer": "Manufacturer",
+    "description": "Description",
+    "related_lots": "Linked exchange lots",
+    "exchange_note": "This purchase is completed on the exchange's own platform."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "empty_cta": "Start shopping",
+    "quantity": "Quantity",
+    "remove": "Remove",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "Your wishlist is empty",
+    "empty_cta": "Browse products"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "contact_name": "Full name",
+    "contact_phone": "Phone number",
+    "delivery_region": "Region/city",
+    "delivery_address": "Delivery address",
+    "comment": "Comment (optional)",
+    "payment_method": "Payment method",
+    "pay_payme": "Payme",
+    "pay_click": "Click",
+    "pay_cash": "Cash on delivery",
+    "submit": "Confirm order",
+    "success_title": "Order received!",
+    "success_text": "Order number: {{number}}. Our operator will contact you soon."
+  },
+  "auth": {
+    "login_title": "Log in",
+    "register_title": "Sign up",
+    "full_name": "Full name",
+    "phone": "Phone number",
+    "password": "Password",
+    "submit_login": "Log in",
+    "submit_register": "Sign up",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "error_generic": "Something went wrong. Please check your details and try again."
+  },
+  "orders": {
+    "title": "My orders",
+    "empty": "No orders yet",
+    "status": "Status",
+    "order_number": "Order number"
+  },
+  "footer": {
+    "tagline": "A trusted trading platform for the Uzbekistan market.",
+    "rights": "All rights reserved."
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "categories": "Categories",
+    "orders": "Orders",
+    "excel_import": "Excel import",
+    "exchange_lots": "Exchange lots",
+    "total_products": "Active products",
+    "total_orders": "Total orders",
+    "new_orders": "New orders",
+    "total_revenue": "Total revenue",
+    "upload_excel": "Upload Excel file",
+    "import_result": "Import result",
+    "success_rows": "Successful rows",
+    "failed_rows": "Failed rows",
+    "edit_product": "Edit product",
+    "stock_quantity": "Stock quantity",
+    "select_all": "Select all",
+    "delete_selected": "Delete selected ({{count}})",
+    "delete_selected_confirm": "Delete {{count}} categories?",
+    "no_categories": "No categories added yet"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "currency": "UZS"
+  }
+}

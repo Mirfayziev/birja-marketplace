@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "categories": "Kategoriyalar",
+    "catalog": "Katalog",
+    "search_placeholder": "Mahsulot qidirish...",
+    "cart": "Savat",
+    "wishlist": "Sevimlilar",
+    "profile": "Profil",
+    "login": "Kirish",
+    "register": "Ro'yxatdan o'tish",
+    "my_orders": "Buyurtmalar",
+    "admin_panel": "Admin panel",
+    "logout": "Chiqish",
+    "no_categories": "Kategoriyalar hali qo'shilmagan",
+    "no_subcategories": "Bu kategoriyada ichki bo'limlar yo'q",
+    "view_all": "Barchasini ko'rish"
+  },
+  "hero": {
+    "eyebrow": "Bitta platforma, ikki yo'l",
+    "title": "Naqd sotib oling. Yoki birja orqali — rasmiy va shaffof.",
+    "subtitle": "Har bir mahsulot kartasida ikkita variant: to'g'ridan-to'g'ri xarid yoki XT-Xarid, Uzex Xarid va Cooperation.uz lotiga bevosita o'tish.",
+    "cta_browse": "Kategoriyalarni ko'rish",
+    "cta_how": "Birja qanday ishlaydi?"
+  },
+  "purchase_type": {
+    "naqd": "Naqd xarid",
+    "birja": "Birja orqali",
+    "ikkalasi": "Naqd yoki birja"
+  },
+  "product": {
+    "add_to_cart": "Savatga qo'shish",
+    "buy_cash": "Naqd sotib olish",
+    "buy_exchange": "Birja orqali xarid",
+    "choose_exchange": "Birjani tanlang",
+    "go_to_lot": "Lotga o'tish",
+    "in_stock": "Omborda: {{count}} {{unit}}",
+    "out_of_stock": "Omborda mavjud emas",
+    "manufacturer": "Ishlab chiqaruvchi",
+    "description": "Tavsif",
+    "related_lots": "Bog'langan birja lotlari",
+    "exchange_note": "Bu xarid tegishli birjaning o'z platformasida yakunlanadi."
+  },
+  "cart": {
+    "title": "Savat",
+    "empty": "Savatingiz bo'sh",
+    "empty_cta": "Xarid qilishni boshlash",
+    "quantity": "Miqdor",
+    "remove": "O'chirish",
+    "total": "Jami",
+    "checkout": "Rasmiylashtirish"
+  },
+  "wishlist": {
+    "title": "Sevimlilar",
+    "empty": "Sevimlilar ro'yxati bo'sh",
+    "empty_cta": "Mahsulotlarni ko'rish"
+  },
+  "checkout": {
+    "title": "Buyurtmani rasmiylashtirish",
+    "contact_name": "F.I.Sh.",
+    "contact_phone": "Telefon raqami",
+    "delivery_region": "Viloyat/shahar",
+    "delivery_address": "Yetkazib berish manzili",
+    "comment": "Izoh (ixtiyoriy)",
+    "payment_method": "To'lov usuli",
+    "pay_payme": "Payme",
+    "pay_click": "Click",
+    "pay_cash": "Yetkazib berishda naqd",
+    "submit": "Buyurtmani tasdiqlash",
+    "success_title": "Buyurtma qabul qilindi!",
+    "success_text": "Buyurtma raqami: {{number}}. Tez orada operatorimiz siz bilan bog'lanadi."
+  },
+  "auth": {
+    "login_title": "Tizimga kirish",
+    "register_title": "Ro'yxatdan o'tish",
+    "full_name": "To'liq ism",
+    "phone": "Telefon raqami",
+    "password": "Parol",
+    "submit_login": "Kirish",
+    "submit_register": "Ro'yxatdan o'tish",
+    "no_account": "Hisobingiz yo'qmi?",
+    "have_account": "Hisobingiz bormi?",
+    "error_generic": "Xatolik yuz berdi. Ma'lumotlarni tekshirib qayta urinib ko'ring."
+  },
+  "orders": {
+    "title": "Buyurtmalarim",
+    "empty": "Hali buyurtmalar yo'q",
+    "status": "Holati",
+    "order_number": "Buyurtma raqami"
+  },
+  "footer": {
+    "tagline": "O'zbekiston bozori uchun ishonchli savdo platformasi.",
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "admin": {
+    "dashboard": "Boshqaruv paneli",
+    "products": "Mahsulotlar",
+    "categories": "Kategoriyalar",
+    "orders": "Buyurtmalar",
+    "excel_import": "Excel import",
+    "exchange_lots": "Birja lotlari",
+    "total_products": "Faol mahsulotlar",
+    "total_orders": "Jami buyurtmalar",
+    "new_orders": "Yangi buyurtmalar",
+    "total_revenue": "Umumiy tushum",
+    "upload_excel": "Excel faylni yuklash",
+    "import_result": "Import natijasi",
+    "success_rows": "Muvaffaqiyatli qatorlar",
+    "failed_rows": "Xatolik qatorlari",
+    "edit_product": "Mahsulotni tahrirlash",
+    "stock_quantity": "Ombordagi miqdor",
+    "select_all": "Barchasini tanlash",
+    "delete_selected": "Tanlanganlarni o'chirish ({{count}})",
+    "delete_selected_confirm": "{{count}} ta kategoriyani o'chirmoqchimisiz?",
+    "no_categories": "Kategoriyalar hali qo'shilmagan"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "edit": "Tahrirlash",
+    "delete": "O'chirish",
+    "back": "Orqaga",
+    "currency": "so'm"
+  }
+}
