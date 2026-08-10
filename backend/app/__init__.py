@@ -21,6 +21,11 @@ def create_app(config_name=None):
     # Modellarni import qilish (migratsiya ularni ko'rishi uchun)
     from app import models  # noqa: F401
 
+    # Jadvallar mavjud bo'lmasa yaratadi - gunicorn ostida ham (Railway/Render)
+    # ishga tushganda bazaga ega bo'lish uchun. Idempotent - mavjud jadvallarga tegmaydi.
+    with app.app_context():
+        db.create_all()
+
     # Blueprintlarni ro'yxatdan o'tkazish
     from app.routes.auth import auth_bp
     from app.routes.categories import categories_bp
