@@ -43,38 +43,45 @@ def seed_admin():
 def seed_categories():
     """
     CATALOG (app/utils/seed_data.py) dagi 3 bosqichli kategoriya daraxtini
-    bazaga yozadi. Bir xil nomdagi kategoriya mavjud bo'lsa, qayta yaratilmaydi -
-    buyruqni bir necha marta xavfsiz ishga tushirish mumkin.
+    (uz/ru/en nomlari bilan) bazaga yozadi. Nom (uz) + ota kategoriya bo'yicha
+    mos kelsa qayta yaratilmaydi, lekin name_ru/name_en har doim yangilanadi -
+    shu sababli buyruqni ilgari yaratilgan (faqat uz nomli) kategoriyalarga
+    tarjima qo'shish uchun ham xavfsiz qayta ishga tushirish mumkin.
         flask --app run.py seed-categories
     """
 
-    def get_or_create(name, parent_id, sort_order):
-        category = Category.query.filter_by(name_uz=name, parent_id=parent_id).first()
+    def upsert(node, parent_id, sort_order):
+        category = Category.query.filter_by(name_uz=node["uz"], parent_id=parent_id).first()
         if category:
-            return category
-        category = Category(
-            name_uz=name,
-            slug=slugify(name),
-            parent_id=parent_id,
-            sort_order=sort_order,
-        )
-        db.session.add(category)
-        db.session.flush()
+            category.name_ru = node["ru"]
+            category.name_en = node["en"]
+            category.sort_order = sort_order
+        else:
+            category = Category(
+                name_uz=node["uz"],
+                name_ru=node["ru"],
+                name_en=node["en"],
+                slug=slugify(node["uz"]),
+                parent_id=parent_id,
+                sort_order=sort_order,
+            )
+            db.session.add(category)
+            db.session.flush()
         return category
 
-    created = 0
-    for root_order, (root_name, groups) in enumerate(CATALOG.items()):
-        root = get_or_create(root_name, None, root_order)
-        created += 1
-        for group_order, (group_name, items) in enumerate(groups.items()):
-            group = get_or_create(group_name, root.id, group_order)
-            created += 1
-            for item_order, item_name in enumerate(items):
-                get_or_create(item_name, group.id, item_order)
-                created += 1
+    updated = 0
+    for root_order, root in enumerate(CATALOG):
+        root_row = upsert(root, None, root_order)
+        updated += 1
+        for group_order, group in enumerate(root.get("items", [])):
+            group_row = upsert(group, root_row.id, group_order)
+            updated += 1
+            for item_order, item in enumerate(group.get("items", [])):
+                upsert(item, group_row.id, item_order)
+                updated += 1
 
     db.session.commit()
-    print(f"Kategoriyalar tayyor: {created} ta yozuv tekshirildi/yaratildi.")
+    print(f"Kategoriyalar tayyor: {updated} ta yozuv tekshirildi/yangilandi.")
 
 
 if __name__ == "__main__":
