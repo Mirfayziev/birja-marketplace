@@ -1,3 +1,33 @@
+# BirjaMarket — Marketplace with Commodity-Exchange Purchasing
+
+A trilingual (Uzbek / Russian / English) e-commerce platform where every product can be bought **two ways**: regular checkout (Payme, Click or cash) or **directly through a lot on Uzbekistan's procurement exchanges** (XT-Xarid, UzEx, Cooperation.uz) — the way government and corporate buyers are required to purchase.
+
+![Flask](https://img.shields.io/badge/backend-Flask%20REST%20%2B%20JWT-black) ![React](https://img.shields.io/badge/frontend-React%20%2B%20Vite%20%2B%20Tailwind-61DAFB)
+
+## Features
+
+- Category catalog with search and filters; cart and checkout with **Payme / Click** integration
+- One product linked to lots on several exchanges; buyer is routed straight to the right lot
+- **Bulk product import from Excel** (with image URLs and exchange lots) in the admin panel
+- Full admin panel: products, categories, orders, delivery planning
+- JWT auth and a clean REST API, ready to serve a future mobile app
+- Separate backend (Railway + PostgreSQL) and frontend (Vercel) deployments
+
+## Stack
+
+Flask · SQLAlchemy · PostgreSQL · Flask-JWT-Extended · pandas/openpyxl · React · Vite · Tailwind CSS
+
+## Structure
+
+```
+backend/   Flask REST API — products, categories, orders, Excel import, Payme/Click
+frontend/  React app — storefront + admin panel (uz/ru/en)
+```
+
+---
+
+*Batafsil o'zbekcha qo'llanma quyida.*
+
 # BirjaMarket — kategoriyali onlayn savdo platformasi
 
 Bu repozitoriy TZ (texnik topshiriq) asosida qurilgan to'liq ishlaydigan veb-ilova:
